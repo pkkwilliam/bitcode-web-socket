@@ -1,5 +1,5 @@
 {
-  "name": "goowhere_web_socket",
+  "name": "bitcode_web_socket",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,8 +7,21 @@
     "sockjs-client": "^1.5.0",
     "stompjs": "^2.3.3"
   },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-stage-2": "^7.0.0"
+  },  
+  "babel": {
+    "presets": [
+      "@babel/react",
+      "@babel/env"
+    ]
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && NODE_ENV=production babel src --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
   },
   "author": "",
   "license": "ISC"

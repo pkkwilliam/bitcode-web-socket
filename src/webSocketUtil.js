@@ -33,12 +33,12 @@ export default class WebSocketUtil {
 
   connect() {
     console.log(this.stompClient);
-    this.stompClient.connect({}, this.onConnect, () => {
+    this.stompClient.connect({}, this.onConnected, () => {
       console.log("web socket error, please add overrride parent");
     });
   }
 
-  onConnect = () => {
+  onConnected = () => {
     console.log("web socket connected");
     this.subscribes.forEach((subscribe) =>
       this.stompClient.subscribe(subscribe.channel, (response) =>
